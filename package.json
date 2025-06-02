@@ -1,0 +1,35 @@
+{
+  "name": "tinder-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -b",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RitickLath/tinder-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RitickLath/tinder-backend/issues"
+  },
+  "homepage": "https://github.com/RitickLath/tinder-backend#readme",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.1",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.96",
+    "concurrently": "^9.1.2"
+  }
+}
