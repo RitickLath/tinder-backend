@@ -228,7 +228,7 @@ export const VerifyOTP = async (req: Request, res: Response) => {
       data: {},
       success: false,
       message: "Internal Server Error In Verifying OTP",
-      error: error,
+      error: error.message || error,
     });
   }
 };
@@ -237,6 +237,8 @@ export const Logout = async (req: Request, res: Response) => {
   try {
     // 1. Clear all cookies.
     res.clearCookie("authToken");
+    res.clearCookie("tempToken");
+
     res.status(httpStatus.OK).json({
       data: {},
       success: true,
@@ -250,7 +252,7 @@ export const Logout = async (req: Request, res: Response) => {
       data: {},
       success: false,
       message: "Internal Server Error In Logout.",
-      error: error,
+      error: error.message || error,
     });
   }
 };

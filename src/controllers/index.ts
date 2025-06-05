@@ -1,6 +1,7 @@
 import { Logout, VerifyOTP, GenerateOTP } from "./auth.controller";
+import { createProfile, updateProfile } from "./profile.controller";
 
-export { Logout, VerifyOTP, GenerateOTP };
+export { Logout, VerifyOTP, GenerateOTP, createProfile, updateProfile };
 
 // HTTP_STATUS.OK                     // 200
 // HTTP_STATUS.CREATED                // 201

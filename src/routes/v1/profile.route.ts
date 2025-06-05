@@ -1,13 +1,12 @@
 import express from "express";
+import { createProfile, updateProfile } from "../../controllers";
+import { tempTokenCheck, authCheck } from "../../middlewares";
 
 export const ProfileRouter = express.Router();
 
 // Create Profile
-ProfileRouter.post("/", (req, res) => {
-  res.json({ success: true });
-});
+// need improvement here in middleware
+ProfileRouter.post("/", tempTokenCheck, createProfile);
 
 // Update Profile
-ProfileRouter.patch("/", (req, res) => {
-  res.json({ success: true });
-});
+ProfileRouter.patch("/", authCheck, updateProfile);

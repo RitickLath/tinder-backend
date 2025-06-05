@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema(
   {
@@ -20,11 +19,6 @@ const userSchema = new mongoose.Schema(
           `${props.value} is not a valid Indian phone number (format: +91XXXXXXXXXX)`,
       },
     },
-    password: {
-      type: String,
-      required: [true, "Password is required"],
-      select: false,
-    },
     isPremiumUser: {
       type: Boolean,
       default: false,
@@ -34,19 +28,5 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-// Hash password before saving
-userSchema.pre("save", async function (next) {
-  if (this.isModified("password")) {
-    const hashedPassword = await bcrypt.hash(this.password, 10);
-    this.password = hashedPassword;
-  }
-  next();
-});
-
-// Method to compare password
-userSchema.methods.comparePassword = async function (password: string) {
-  return await bcrypt.compare(password, this.password);
-};
 
 export const User = mongoose.model("User", userSchema);
