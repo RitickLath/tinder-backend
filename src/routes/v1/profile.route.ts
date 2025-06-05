@@ -1,10 +1,13 @@
 import express from "express";
 
-const ProfileRouter = express.Router();
+export const ProfileRouter = express.Router();
 
 // Create Profile
-ProfileRouter.post("/profile");
+ProfileRouter.post("/", (req, res) => {
+  res.json({ success: true });
+});
 
 // Update Profile
-ProfileRouter.patch("/profile");
-
+ProfileRouter.patch("/", (req, res) => {
+  res.json({ success: true });
+});
